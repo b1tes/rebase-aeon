@@ -3943,11 +3943,11 @@ uint64_t Blockchain::prevalidate_block_hashes(uint64_t height, const std::list<c
       bool valid = hash == m_blocks_hash_of_hashes[n];
 
       // add to the known hashes array
-//      if (!valid)
-//      {
-//        MWARNING("invalid hash for blocks " << n * HASH_OF_HASHES_STEP << " - " << (n * HASH_OF_HASHES_STEP + HASH_OF_HASHES_STEP - 1));
-//        break;
-//      }
+      if (!valid)
+      {
+        MWARNING("invalid hash for blocks " << n * HASH_OF_HASHES_STEP << " - " << (n * HASH_OF_HASHES_STEP + HASH_OF_HASHES_STEP - 1));
+        break;
+      }
 
       size_t end = n * HASH_OF_HASHES_STEP + HASH_OF_HASHES_STEP;
       for (size_t i = n * HASH_OF_HASHES_STEP; i < end; ++i)
